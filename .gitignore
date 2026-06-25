@@ -1,0 +1,14 @@
+# Keep the public GitHub Pages repo focused on the shareable site.
+# These research artifacts remain local unless intentionally published later.
+jason_token_anxiety_brief.md
+north_american_tas_items_v0_1.csv
+north_american_tas_v0_1.md
+round2_cross_country_qualitative_memo.md
+token_anxiety_brief_for_jason.docx
+token_anxiety_research_memo.md
+ql_jason_brief/
+rendered_jason_brief/
+scripts/
+
+# OS/editor noise
+.DS_Store
