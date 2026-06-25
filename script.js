@@ -222,14 +222,20 @@ function renderQuestionnaire() {
           ? `
             <div class="scale-reminder">
               <span class="scale-reminder-label">Scale guide</span>
-              <div class="survey-anchor-row" aria-label="Response scale guide">
-                <span><strong>1</strong><small>Strongly disagree</small></span>
-                <span><strong>2</strong></span>
-                <span><strong>3</strong></span>
-                <span><strong>4</strong><small>Neither agree nor disagree</small></span>
-                <span><strong>5</strong></span>
-                <span><strong>6</strong></span>
-                <span><strong>7</strong><small>Strongly agree</small></span>
+              <div class="scale-guide" aria-label="Response scale guide">
+                <div class="scale-endpoints">
+                  <span>Strongly disagree</span>
+                  <span>Strongly agree</span>
+                </div>
+                <div class="survey-anchor-row">
+                  <span>1</span>
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5</span>
+                  <span>6</span>
+                  <span>7</span>
+                </div>
               </div>
             </div>
           `
@@ -238,9 +244,7 @@ function renderQuestionnaire() {
       return `
         ${reminder}
         <fieldset class="question-block">
-          <legend class="question-meta">
-            <span class="question-id">${id}</span>
-          </legend>
+          <legend class="sr-only">Question ${index + 1}</legend>
           <p class="question-text">${text}</p>
           <div class="likert-row" role="radiogroup" aria-label="${id}: ${text}">
             ${options}
