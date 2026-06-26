@@ -344,8 +344,48 @@ a {
 }
 
 .demo-section {
-  padding: clamp(56px, 8vw, 92px) clamp(20px, 4vw, 56px);
+  padding: clamp(30px, 5vw, 58px) clamp(20px, 4vw, 56px) clamp(56px, 8vw, 92px);
   background: #f6faf7;
+}
+
+.first-screen {
+  min-height: calc(100vh - 67px);
+}
+
+.first-screen > .section-heading {
+  display: grid;
+  max-width: min(1480px, calc(100vw - clamp(40px, 8vw, 112px)));
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 28px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.first-screen .section-kicker,
+.first-screen .demo-title,
+.first-screen .section-heading p:not(.section-kicker) {
+  grid-column: 1;
+}
+
+.first-screen .section-heading p:not(.section-kicker) {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.demo-title {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.research-jump {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  white-space: nowrap;
 }
 
 .demo-layout {
@@ -365,16 +405,28 @@ a {
 }
 
 .demo-card {
-  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(320px, 1fr);
+  gap: 22px;
+  align-items: center;
+  padding: 16px 18px;
 }
 
 .demo-card h3 {
-  margin: 0 0 10px;
+  grid-column: 1;
+  margin: 0 0 4px;
+  color: var(--accent-dark);
 }
 
 .demo-card p {
-  margin: 0 0 16px;
+  grid-column: 1;
+  margin: 0;
   color: var(--muted);
+}
+
+.demo-card .scale-guide {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 
 .measurement-note {
@@ -461,7 +513,7 @@ a {
 
 .scale-reminder {
   display: grid;
-  grid-template-columns: 120px minmax(0, 720px);
+  grid-template-columns: 120px minmax(0, 1fr);
   gap: 14px;
   align-items: center;
   padding: 14px 18px;
@@ -486,6 +538,9 @@ a {
 }
 
 .question-block {
+  min-inline-size: 0;
+  margin: 0;
+  border: 0;
   padding: 18px;
   border-bottom: 1px solid var(--line);
 }
@@ -687,6 +742,10 @@ a {
 
 .result-explanation p:last-child {
   margin-bottom: 0;
+}
+
+.result-next {
+  margin-top: 6px;
 }
 
 .bar-scale {
@@ -929,6 +988,24 @@ select {
   .content-grid,
   .demo-layout {
     grid-template-columns: 1fr;
+  }
+
+  .first-screen > .section-heading,
+  .demo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .research-jump,
+  .demo-card .scale-guide,
+  .first-screen .section-kicker,
+  .first-screen .demo-title,
+  .first-screen .section-heading p:not(.section-kicker) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .research-jump {
+    justify-self: start;
   }
 
   .demo-card {

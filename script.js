@@ -100,6 +100,37 @@ const coreItems = [
   ["EDS6", "Emotional Distress", "I feel tense when deciding whether a task is worth spending AI resources on."],
 ];
 
+const demoItemOrder = [
+  "UBU1",
+  "EDS2",
+  "CSW1",
+  "AID2",
+  "RMA3",
+  "PFT3",
+  "EBS1",
+  "WIC3",
+  "CSW5",
+  "UBU6",
+  "EDS1",
+  "RMA2",
+  "PFT5",
+  "AID5",
+  "WIC1",
+  "EBS5",
+  "UBU3",
+  "CSW2",
+  "RMA5",
+  "EDS6",
+  "PFT1",
+  "EBS2",
+  "AID1",
+  "WIC4",
+];
+
+const demoItems = demoItemOrder
+  .map((id) => coreItems.find((item) => item[0] === id))
+  .filter(Boolean);
+
 const dimensionGrid = document.querySelector("#dimensionGrid");
 const filter = document.querySelector("#dimensionFilter");
 const tableBody = document.querySelector("#itemsTableBody");
@@ -205,7 +236,7 @@ function renderItems(selected = "all") {
 function renderQuestionnaire() {
   if (!demoForm) return;
 
-  demoForm.innerHTML = coreItems
+  demoForm.innerHTML = demoItems
     .map(([id, dimension, text], index) => {
       const options = [1, 2, 3, 4, 5, 6, 7]
         .map(
@@ -257,7 +288,7 @@ function renderQuestionnaire() {
 
 function getResponses() {
   const responses = {};
-  coreItems.forEach(([id]) => {
+  demoItems.forEach(([id]) => {
     const selected = demoForm?.querySelector(`input[name="${id}"]:checked`);
     if (selected) responses[id] = Number(selected.value);
   });
@@ -267,16 +298,16 @@ function getResponses() {
 function updateProgress() {
   if (!questionnaireProgress) return;
   const answered = Object.keys(getResponses()).length;
-  questionnaireProgress.textContent = `${answered} of ${coreItems.length} answered`;
+  questionnaireProgress.textContent = `${answered} of ${demoItems.length} answered`;
 }
 
 function mean(values) {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
-function scoreByDimension(responses) {
+function scoreByDimension(responses, items = coreItems) {
   return dimensions.map((dimension) => {
-    const values = coreItems
+    const values = items
       .filter((item) => item[1] === dimension.name)
       .map(([id]) => responses[id])
       .filter((value) => typeof value === "number");
@@ -320,14 +351,14 @@ function renderResults() {
   const responses = getResponses();
   const answered = Object.keys(responses).length;
 
-  if (answered < coreItems.length) {
-    demoError.textContent = `Please answer all ${coreItems.length} items before generating a profile. You have answered ${answered}.`;
+  if (answered < demoItems.length) {
+    demoError.textContent = `Please answer all ${demoItems.length} items before generating a profile. You have answered ${answered}.`;
     demoResults.hidden = true;
     return;
   }
 
   demoError.textContent = "";
-  const scoredDimensions = scoreByDimension(responses);
+  const scoredDimensions = scoreByDimension(responses, demoItems);
   const overall = mean(Object.values(responses));
   const sorted = [...scoredDimensions].sort((a, b) => b.score - a.score);
   const highest = sorted[0];
@@ -342,7 +373,7 @@ function renderResults() {
   resultExplanation.innerHTML = `
     <h4>How to read this result</h4>
     <p>${getScoreInterpretation(overall)}</p>
-    <p>The profile title is based on your highest-scoring dimension, while the overall signal is the mean across all 48 prototype items.</p>
+    <p>The profile title is based on your highest-scoring dimension, while the overall signal is the mean across this 24-item experience version.</p>
   `;
 
   dimensionBars.innerHTML = scoredDimensions

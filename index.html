@@ -6,7 +6,7 @@
     <title>Token Anxiety Scale</title>
     <meta
       name="description"
-      content="A research project and preliminary scale framework for token anxiety in AI workflows."
+      content="An interactive research prototype for measuring token anxiety in AI workflows."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -17,301 +17,31 @@
         <span>Token Anxiety Scale</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#research">Background</a>
+        <a href="#demo">Take the scale</a>
+        <a href="#research">Research</a>
         <a href="#framework">Framework</a>
-        <a href="#scale">Scale</a>
-        <a href="#demo">Demo</a>
-        <a href="#method">Method</a>
         <a href="#references">References</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero section-band">
-        <div class="hero-copy">
-          <p class="eyebrow">Early research project · v0.1 scale framework</p>
-          <h1>Token Anxiety in AI Workflows</h1>
-          <p class="lead">
-            A research project on the emotional and behavioral stress users experience
-            when AI capability becomes limited, metered, costly, opaque, or at risk of
-            running out during meaningful work.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#demo">Take the demo questionnaire</a>
-            <a class="button secondary" href="#research">Read the research</a>
-          </div>
-        </div>
-        <aside class="hero-panel" aria-label="Project snapshot">
-          <div>
-            <span class="metric">48</span>
-            <span class="metric-label">core candidate items</span>
-          </div>
-          <div>
-            <span class="metric">8</span>
-            <span class="metric-label">proposed dimensions</span>
-          </div>
-          <div>
-            <span class="metric">4</span>
-            <span class="metric-label">optional context modules</span>
-          </div>
-        </aside>
-      </section>
-
-      <section class="content-grid intro">
-        <div>
-          <p class="section-kicker">Construct definition</p>
-          <h2>What is token anxiety?</h2>
-        </div>
-        <div class="definition">
-          <p>
-            <strong>Token anxiety</strong> refers to anticipatory worry, emotional
-            discomfort, resource-monitoring behavior, and perceived loss of control
-            that arise when users believe their AI usage resources may be insufficient
-            for their task demands.
-          </p>
-          <p>
-            These resources may include tokens, messages, rate limits, context windows,
-            premium requests, AI credits, subscription allowances, API budgets, or
-            employer-provided AI access.
-          </p>
-        </div>
-      </section>
-
-      <section id="research" class="section-band">
+      <section id="demo" class="demo-section first-screen">
         <div class="section-heading">
-          <p class="section-kicker">Research background</p>
-          <h2>From digital anxiety to metered AI resources</h2>
+          <p class="section-kicker">Interactive research prototype</p>
+          <h1 class="demo-title">Token Anxiety Scale</h1>
           <p>
-            Token anxiety is positioned at the intersection of situational anxiety,
-            digital stress, technology dependence, and the emerging usage-based
-            economics of generative AI.
+            A 3-minute, 24-item experience version of a scale-in-development for
+            AI usage limits, tokens, credits, rate limits, and subscription caps.
           </p>
-        </div>
-
-        <div class="academic-background">
-          <article>
-            <h3>1. Technology-related anxiety and situational threat</h3>
-            <p>
-              Psychological anxiety is often understood as an anticipatory response to
-              potential threat, uncertainty, or loss of control. In digital contexts,
-              that threat does not need to be physically dangerous; it can involve the
-              anticipated loss of communication, information access, convenience,
-              productivity, or social participation. Work on nomophobia, especially the
-              Nomophobia Questionnaire developed by Yildirim and Correia, shows that
-              anxiety around mobile technology can be decomposed into dimensions such
-              as not being able to communicate, losing connectedness, not being able to
-              access information, and giving up convenience.
-              <a href="#ref-yildirim">[1]</a>
-            </p>
-          </article>
-
-          <article>
-            <h3>2. From device availability to resource sufficiency</h3>
-            <p>
-              Low-battery anxiety extends this logic from device absence to resource
-              insufficiency. The device may still be present, but its future usability
-              is threatened by a declining resource. Prior work on low-battery anxiety
-              has shown that battery level can shape user behavior, including whether
-              users continue or abandon mobile video watching.
-              <a href="#ref-tang">[2]</a> This makes low-battery anxiety an important
-              conceptual bridge for TAS: the central issue is not only whether a tool
-              exists, but whether the user believes the resource behind the tool can
-              sustain the intended activity.
-            </p>
-          </article>
-
-          <article>
-            <h3>3. Digital stress and workplace technology strain</h3>
-            <p>
-              Token anxiety also belongs to the broader family of digital stress and
-              technostress constructs. The Digital Stressors Scale developed by Fischer,
-              Reuter, and Riedl treats digital stress as a workplace-relevant response
-              to perceived stressors created by digital technology. Their scale
-              development process began with 138 candidate items across 15 digital
-              stressors and was refined into 10 stressor categories and 50 items using
-              card sorting, exploratory factor analysis, and structural modeling.
-              <a href="#ref-fischer">[3]</a> TAS adopts a similar premise: a new
-              technological environment can produce new stressors that existing
-              measures may not fully capture.
-            </p>
-          </article>
-
-          <article>
-            <h3>4. Generative AI as a metered cognitive resource</h3>
-            <p>
-              Generative AI introduces a resource structure that differs from mobile
-              battery, internet access, or ordinary software availability. AI
-              capability is increasingly mediated through tokens, credits, rate limits,
-              context windows, premium requests, model-specific allowances, and API
-              budgets. OpenAI describes API use as token-priced, with input, cached
-              input, and output tokens priced differently. <a href="#ref-openai">[4]</a>
-              Anthropic describes usage limits as a time-bounded conversation budget.
-              <a href="#ref-anthropic">[5]</a> GitHub Copilot has moved toward AI
-              Credits based on input, output, and cached token usage. <a href="#ref-github">[6]</a>
-              Gemini API pricing similarly uses token-based paid tiers, context
-              caching, and rate limits. <a href="#ref-gemini">[7]</a>
-            </p>
-          </article>
-
-          <article>
-            <h3>5. Research gap and contribution of TAS</h3>
-            <p>
-              Existing measures explain important parts of this phenomenon, but none
-              directly measure the user experience of AI capability as a dynamic,
-              metered, partially opaque, and economically consequential resource. TAS
-              is therefore proposed as a construct-specific scale for studying how AI
-              users monitor, ration, conserve, substitute, worry about, and emotionally
-              respond to bounded AI usage resources. The current v0.1 scale follows
-              scale-development recommendations that emphasize construct definition,
-              item generation, content validity, pilot testing, factor analysis, and
-              validation in independent samples. <a href="#ref-boateng">[8]</a>
-            </p>
-          </article>
-        </div>
-
-        <div class="research-list">
-          <article class="research-item">
-            <span class="item-number">01</span>
-            <div>
-              <h3>Metered intelligence</h3>
-              <p>
-                Users are not only interacting with intelligence. They are interacting
-                with intelligence as a bounded, priced, and sometimes dynamically
-                allocated resource.
-              </p>
-            </div>
-          </article>
-          <article class="research-item">
-            <span class="item-number">02</span>
-            <div>
-              <h3>Black-box consumption</h3>
-              <p>
-                Unlike battery life, AI usage can be difficult to predict. Long context,
-                tool calls, agentic workflows, cached input, output length, and model
-                choice can all affect resource use.
-              </p>
-            </div>
-          </article>
-          <article class="research-item">
-            <span class="item-number">03</span>
-            <div>
-              <h3>Workflow interruption</h3>
-              <p>
-                Usage limits can interrupt work after a user has built context,
-                momentum, and trust with the system, making the limit feel like a break
-                in cognitive continuity.
-              </p>
-            </div>
-          </article>
-          <article class="research-item">
-            <span class="item-number">04</span>
-            <div>
-              <h3>Economic and organizational pressure</h3>
-              <p>
-                Users may experience AI resources as personal expense, workplace
-                infrastructure, productivity advantage, or an unevenly distributed
-                professional benefit.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-grid">
-        <div>
-          <p class="section-kicker">Emerging insight</p>
-          <h2>A two-sided resource pressure</h2>
-        </div>
-        <div>
-          <p>
-            Token anxiety may not be a one-directional “resource depletion” phenomenon.
-            A token-specific pattern appears when users feel pressure because their
-            allowance is about to reset while a large share remains unused.
-          </p>
-          <div class="two-sided">
-            <div>
-              <h3>Too little left</h3>
-              <p>I may be interrupted, downgraded, delayed, or forced to pay more.</p>
-            </div>
-            <div>
-              <h3>Too much left near reset</h3>
-              <p>I may waste value, fail to “use my plan,” or miss a productive window.</p>
-            </div>
-          </div>
-          <p class="note">
-            This “use-it-or-lose-it pressure” is currently treated as an emerging module,
-            not yet part of the core validated construct.
-          </p>
-        </div>
-      </section>
-
-      <section id="framework" class="section-band">
-        <div class="section-heading">
-          <p class="section-kicker">Scale framework</p>
-          <h2>Eight proposed dimensions</h2>
-          <p>
-            TAS v0.1 is a pre-validation item pool. The current structure is meant for
-            cognitive interviews, pilot testing, and factor analysis.
-          </p>
-        </div>
-
-        <div class="dimension-grid" id="dimensionGrid"></div>
-      </section>
-
-      <section id="scale" class="scale-section">
-        <div class="section-heading">
-          <p class="section-kicker">Preliminary scale</p>
-          <h2>Core item pool</h2>
-          <p>
-            Response scale: 1 = Strongly disagree, 7 = Strongly agree. All v0.1 items
-            are positively keyed. This is not a clinical diagnostic instrument.
-          </p>
-        </div>
-
-        <div class="scale-toolbar" aria-label="Scale controls">
-          <label for="dimensionFilter">Filter by dimension</label>
-          <select id="dimensionFilter">
-            <option value="all">All core dimensions</option>
-          </select>
-        </div>
-
-        <div class="items-table-wrap">
-          <table class="items-table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Dimension</th>
-                <th scope="col">Item</th>
-              </tr>
-            </thead>
-            <tbody id="itemsTableBody"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="demo" class="demo-section">
-        <div class="section-heading">
-          <p class="section-kicker">Interactive demo</p>
-          <h2>Try the Token Anxiety Scale</h2>
-          <p>
-            This demo uses the current 48-item v0.1 core item pool. It calculates a
-            local, illustrative profile in your browser. Responses are not stored or
-            transmitted, and the output should not be interpreted as a validated
-            psychological diagnosis.
-          </p>
+          <a class="button secondary research-jump" href="#research">Jump to research</a>
         </div>
 
         <div class="demo-layout">
           <section class="demo-card">
-            <h3>How to answer</h3>
+            <h3>Think about the past 30 days</h3>
             <p>
-              Think about your experiences using AI tools during the past 30 days.
-              Choose the response that best matches your experience.
-            </p>
-            <p class="measurement-note">
-              During the questionnaire, item dimensions are intentionally hidden to
-              reduce demand characteristics. Dimension scores are shown only after
-              completion.
+              For each statement, choose the response that best matches your experience
+              using AI tools.
             </p>
             <div class="scale-guide" aria-label="Response scale">
               <div class="scale-endpoints">
@@ -332,13 +62,13 @@
 
           <div class="questionnaire-panel">
             <div class="questionnaire-topbar">
-              <span id="questionnaireProgress">0 of 48 answered</span>
+              <span id="questionnaireProgress">0 of 24 answered</span>
               <button class="text-button" type="button" id="clearDemo">Clear responses</button>
             </div>
             <form id="tasDemoForm" class="questionnaire-form"></form>
             <div class="questionnaire-actions">
               <button class="button primary" type="button" id="scoreDemo">
-                Generate my profile
+                Generate my AI usage profile
               </button>
               <p id="demoError" class="form-error" role="alert"></p>
             </div>
@@ -381,7 +111,219 @@
             research. A validated score would require cognitive interviews, pilot data,
             EFA/CFA, reliability testing, and validity evidence.
           </p>
+          <a class="button secondary result-next" href="#research">Read the research background</a>
         </section>
+      </section>
+
+      <section class="content-grid intro">
+        <div>
+          <p class="section-kicker">Construct definition</p>
+          <h2>What is token anxiety?</h2>
+        </div>
+        <div class="definition">
+          <p>
+            <strong>Token anxiety</strong> refers to anticipatory worry, emotional
+            discomfort, resource-monitoring behavior, and perceived loss of control
+            that arise when users believe their AI usage resources may be insufficient
+            for their task demands.
+          </p>
+          <p>
+            These resources may include tokens, messages, rate limits, context windows,
+            premium requests, AI credits, subscription allowances, API budgets, or
+            employer-provided AI access.
+          </p>
+        </div>
+      </section>
+
+      <section id="research" class="section-band">
+        <div class="section-heading">
+          <p class="section-kicker">Research background</p>
+          <h2>From digital anxiety to metered AI resources</h2>
+          <p>
+            Token anxiety is positioned at the intersection of situational anxiety,
+            digital stress, technology dependence, and the emerging usage-based
+            economics of generative AI.
+          </p>
+        </div>
+
+        <div class="academic-background">
+          <article>
+            <h3>1. Technology-related anxiety and situational threat</h3>
+            <p>
+              Psychological anxiety is often understood as an anticipatory response to
+              potential threat, uncertainty, or loss of control. In digital contexts,
+              that threat can involve the anticipated loss of communication,
+              information access, convenience, productivity, or social participation.
+              Work on nomophobia, especially the Nomophobia Questionnaire developed by
+              Yildirim and Correia, offers an important precedent for measuring anxiety
+              around digitally mediated access. <a href="#ref-yildirim">[1]</a>
+            </p>
+          </article>
+
+          <article>
+            <h3>2. From device availability to resource sufficiency</h3>
+            <p>
+              Low-battery anxiety extends this logic from device absence to resource
+              insufficiency. The device may still be present, but its future usability
+              is threatened by a declining resource. Prior work shows that battery
+              level can shape user behavior, including whether users continue or abandon
+              mobile video watching. <a href="#ref-tang">[2]</a>
+            </p>
+          </article>
+
+          <article>
+            <h3>3. Digital stress and workplace technology strain</h3>
+            <p>
+              Token anxiety also belongs to the broader family of digital stress and
+              technostress constructs. The Digital Stressors Scale treats digital stress
+              as a workplace-relevant response to stressors created by digital
+              technology. <a href="#ref-fischer">[3]</a>
+            </p>
+          </article>
+
+          <article>
+            <h3>4. Generative AI as a metered cognitive resource</h3>
+            <p>
+              Generative AI capability is increasingly mediated through tokens, credits,
+              rate limits, context windows, premium requests, model-specific allowances,
+              and API budgets. OpenAI, Anthropic, GitHub Copilot, and Gemini all expose
+              users or builders to some form of usage-based limit, pricing, or
+              allowance. <a href="#ref-openai">[4]</a> <a href="#ref-anthropic">[5]</a>
+              <a href="#ref-github">[6]</a> <a href="#ref-gemini">[7]</a>
+            </p>
+          </article>
+
+          <article>
+            <h3>5. Research gap and contribution of TAS</h3>
+            <p>
+              Existing measures explain important parts of this phenomenon, but none
+              directly measure the user experience of AI capability as a dynamic,
+              metered, partially opaque, and economically consequential resource. TAS
+              is proposed as a construct-specific scale for studying how AI users
+              monitor, ration, conserve, substitute, worry about, and emotionally
+              respond to bounded AI usage resources. <a href="#ref-boateng">[8]</a>
+            </p>
+          </article>
+        </div>
+
+        <div class="research-list">
+          <article class="research-item">
+            <span class="item-number">01</span>
+            <div>
+              <h3>Metered intelligence</h3>
+              <p>
+                Users are not only interacting with intelligence. They are interacting
+                with intelligence as a bounded, priced, and sometimes dynamically
+                allocated resource.
+              </p>
+            </div>
+          </article>
+          <article class="research-item">
+            <span class="item-number">02</span>
+            <div>
+              <h3>Black-box consumption</h3>
+              <p>
+                Long context, tool calls, agentic workflows, cached input, output
+                length, and model choice can all affect usage in ways users may not
+                easily predict.
+              </p>
+            </div>
+          </article>
+          <article class="research-item">
+            <span class="item-number">03</span>
+            <div>
+              <h3>Workflow interruption</h3>
+              <p>
+                Usage limits can interrupt work after a user has built context,
+                momentum, and trust with the system.
+              </p>
+            </div>
+          </article>
+          <article class="research-item">
+            <span class="item-number">04</span>
+            <div>
+              <h3>Economic and organizational pressure</h3>
+              <p>
+                AI resources may be experienced as personal expense, workplace
+                infrastructure, productivity advantage, or an unevenly distributed
+                professional benefit.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div>
+          <p class="section-kicker">Emerging insight</p>
+          <h2>A two-sided resource pressure</h2>
+        </div>
+        <div>
+          <p>
+            Token anxiety may not be a one-directional “resource depletion” phenomenon.
+            A token-specific pattern appears when users feel pressure because their
+            allowance is about to reset while a large share remains unused.
+          </p>
+          <div class="two-sided">
+            <div>
+              <h3>Too little left</h3>
+              <p>I may be interrupted, downgraded, delayed, or forced to pay more.</p>
+            </div>
+            <div>
+              <h3>Too much left near reset</h3>
+              <p>I may waste value, fail to “use my plan,” or miss a productive window.</p>
+            </div>
+          </div>
+          <p class="note">
+            This “use-it-or-lose-it pressure” is currently treated as an emerging module,
+            not yet part of the core validated construct.
+          </p>
+        </div>
+      </section>
+
+      <section id="framework" class="section-band">
+        <div class="section-heading">
+          <p class="section-kicker">Scale framework</p>
+          <h2>Eight proposed dimensions</h2>
+          <p>
+            The short experience version above samples from the broader 48-item v0.1
+            item pool. The full version would still require cognitive interviews,
+            pilot testing, EFA/CFA, and validity evidence.
+          </p>
+        </div>
+
+        <div class="dimension-grid" id="dimensionGrid"></div>
+      </section>
+
+      <section id="scale" class="scale-section">
+        <div class="section-heading">
+          <p class="section-kicker">Full item pool</p>
+          <h2>48 candidate items for validation</h2>
+          <p>
+            The public demo uses 24 items to reduce burden. The fuller v0.1 item pool
+            is retained here as a research appendix.
+          </p>
+        </div>
+
+        <div class="scale-toolbar" aria-label="Scale controls">
+          <label for="dimensionFilter">Filter by dimension</label>
+          <select id="dimensionFilter">
+            <option value="all">All core dimensions</option>
+          </select>
+        </div>
+
+        <div class="items-table-wrap">
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Dimension</th>
+                <th scope="col">Item</th>
+              </tr>
+            </thead>
+            <tbody id="itemsTableBody"></tbody>
+          </table>
+        </div>
       </section>
 
       <section id="method" class="section-band">
