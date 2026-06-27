@@ -31,7 +31,8 @@
           <h1 class="demo-title">Token Anxiety Scale</h1>
           <p>
             A 3-minute, 24-item experience version of a scale-in-development for
-            AI usage limits, tokens, credits, rate limits, and subscription caps.
+            AI usage limits, tokens, credits, rate limits, enterprise access, and
+            subscription caps.
           </p>
           <a class="button secondary research-jump" href="#research">Jump to research</a>
         </div>
@@ -41,7 +42,9 @@
             <h3>Think about the past 30 days</h3>
             <p>
               For each statement, choose the response that best matches your experience
-              using AI tools.
+              using AI tools. You do not need to personally pay for AI access to answer;
+              limits can also come from employer plans, school accounts, model tiers,
+              policy rules, context windows, or rate limits.
             </p>
             <div class="scale-guide" aria-label="Response scale">
               <div class="scale-endpoints">
@@ -65,6 +68,34 @@
               <span id="questionnaireProgress">0 of 24 answered</span>
               <button class="text-button" type="button" id="clearDemo">Clear responses</button>
             </div>
+            <section class="access-context" aria-label="Optional AI access context">
+              <div>
+                <h3>Optional context</h3>
+                <p>How is your main AI access currently provided?</p>
+              </div>
+              <div class="context-options">
+                <label>
+                  <input type="radio" name="accessContext" value="personal" />
+                  <span>Self-paid</span>
+                </label>
+                <label>
+                  <input type="radio" name="accessContext" value="enterprise" />
+                  <span>Employer or school</span>
+                </label>
+                <label>
+                  <input type="radio" name="accessContext" value="mixed" />
+                  <span>Mixed</span>
+                </label>
+                <label>
+                  <input type="radio" name="accessContext" value="free" />
+                  <span>Free tier</span>
+                </label>
+                <label>
+                  <input type="radio" name="accessContext" value="unsure" />
+                  <span>Not sure</span>
+                </label>
+              </div>
+            </section>
             <form id="tasDemoForm" class="questionnaire-form"></form>
             <div class="questionnaire-actions">
               <button class="button primary" type="button" id="scoreDemo">
@@ -130,7 +161,9 @@
           <p>
             These resources may include tokens, messages, rate limits, context windows,
             premium requests, AI credits, subscription allowances, API budgets, or
-            employer-provided AI access.
+            employer-provided AI access. The construct is about perceived constraint,
+            uncertainty, dependence, and control, so it may still apply when access is
+            paid for by an organization rather than by the individual user.
           </p>
         </div>
       </section>
@@ -186,9 +219,9 @@
             <p>
               Generative AI capability is increasingly mediated through tokens, credits,
               rate limits, context windows, premium requests, model-specific allowances,
-              and API budgets. OpenAI, Anthropic, GitHub Copilot, and Gemini all expose
-              users or builders to some form of usage-based limit, pricing, or
-              allowance. <a href="#ref-openai">[4]</a> <a href="#ref-anthropic">[5]</a>
+              enterprise policies, and API budgets. OpenAI, Anthropic, GitHub Copilot,
+              and Gemini all expose users or builders to some form of usage-based
+              limit, pricing, allowance, or governed access. <a href="#ref-openai">[4]</a> <a href="#ref-anthropic">[5]</a>
               <a href="#ref-github">[6]</a> <a href="#ref-gemini">[7]</a>
             </p>
           </article>

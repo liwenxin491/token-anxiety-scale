@@ -495,6 +495,74 @@ a {
   font-weight: 800;
 }
 
+.access-context {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.35fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.access-context h3 {
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+  font-size: 1rem;
+}
+
+.access-context p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.context-options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.context-options label {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  border-right: 1px solid var(--line);
+  background: #fbfcfb;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.context-options label:last-child {
+  border-right: 0;
+}
+
+.context-options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.context-options label:has(input:checked) {
+  background: var(--accent);
+  color: #fff;
+}
+
+.context-options label:hover {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.context-options label:has(input:checked):hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 .text-button {
   border: 0;
   background: transparent;
@@ -1077,6 +1145,20 @@ select {
   .scale-reminder {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .access-context,
+  .context-options {
+    grid-template-columns: 1fr;
+  }
+
+  .context-options label {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .context-options label:last-child {
+    border-bottom: 0;
   }
 
   .profile-insights,

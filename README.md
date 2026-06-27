@@ -2,6 +2,10 @@
 
 Static research prototype for the Token Anxiety Scale (TAS) project.
 
+TAS treats token anxiety as a response to bounded or governed AI access, including
+personally paid plans, free tiers, employer or school-provided access, rate limits,
+model tiers, context windows, and policy restrictions.
+
 The public site includes:
 
 - A short 24-item interactive questionnaire

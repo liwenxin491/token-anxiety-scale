@@ -139,6 +139,7 @@ const scoreDemoButton = document.querySelector("#scoreDemo");
 const clearDemoButton = document.querySelector("#clearDemo");
 const demoError = document.querySelector("#demoError");
 const questionnaireProgress = document.querySelector("#questionnaireProgress");
+const accessContextInputs = document.querySelectorAll('input[name="accessContext"]');
 const demoResults = document.querySelector("#demoResults");
 const profileTitle = document.querySelector("#profileTitle");
 const profileSummary = document.querySelector("#profileSummary");
@@ -189,6 +190,19 @@ const profileDefinitions = {
     summary:
       "Your profile suggests that usage limits are not just a planning issue; they are emotionally charged, producing anxiety, frustration, regret, tension, or relief after reset.",
   },
+};
+
+const accessContextDefinitions = {
+  personal:
+    "You marked your main AI access as self-paid. In this context, token anxiety may be especially shaped by cost, plan value, and decisions about whether a task is worth spending limited resources on.",
+  enterprise:
+    "You marked your main AI access as employer- or school-provided. This prototype does not assume that you personally pay for AI; in organizational settings, token anxiety may instead come from governed access, model-tier restrictions, rate limits, policy uncertainty, monitored usage, or dependence on infrastructure that could change.",
+  mixed:
+    "You marked your main AI access as mixed. In this context, token anxiety may move between personal cost concerns and organizational access concerns, depending on which tool or task you are using.",
+  free:
+    "You marked your main AI access as mostly free-tier. In this context, token anxiety may be especially shaped by reset windows, interruptions, model substitution, and uncertainty about whether free access is enough for meaningful work.",
+  unsure:
+    "You marked your access context as not sure. That uncertainty itself can matter: unclear allowances, invisible quotas, or ambiguous product rules may make AI access feel harder to plan around.",
 };
 
 function renderDimensions() {
@@ -347,6 +361,11 @@ function getScoreInterpretation(score) {
   return "Your responses suggest a high token-anxiety signal. AI usage resources may feel strongly tied to continuity, control, cost, or performance pressure in your current workflow.";
 }
 
+function getAccessContextNote() {
+  const selected = document.querySelector('input[name="accessContext"]:checked');
+  return selected ? accessContextDefinitions[selected.value] : "";
+}
+
 function renderResults() {
   const responses = getResponses();
   const answered = Object.keys(responses).length;
@@ -370,9 +389,11 @@ function renderResults() {
   profileSummary.textContent = profile.summary;
   topDimension.textContent = `${highest.name} (${highest.score.toFixed(2)} / 7). This is the dimension most shaping your prototype profile.`;
   lowDimension.textContent = `${lowest.name} (${lowest.score.toFixed(2)} / 7). This appears less central in your current response pattern.`;
+  const accessContextNote = getAccessContextNote();
   resultExplanation.innerHTML = `
     <h4>How to read this result</h4>
     <p>${getScoreInterpretation(overall)}</p>
+    ${accessContextNote ? `<p>${accessContextNote}</p>` : ""}
     <p>The profile title is based on your highest-scoring dimension, while the overall signal is the mean across this 24-item experience version.</p>
   `;
 
@@ -399,6 +420,9 @@ function renderResults() {
 
 function clearQuestionnaire() {
   demoForm?.reset();
+  accessContextInputs.forEach((input) => {
+    input.checked = false;
+  });
   demoError.textContent = "";
   if (demoResults) demoResults.hidden = true;
   updateProgress();
